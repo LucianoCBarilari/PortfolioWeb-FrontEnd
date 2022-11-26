@@ -1,0 +1,43 @@
+<div class="container-fluid mt-2 shadow p-1 mb-3 bg-body rounded" style="max-width: 78%; min-width: 550px;">
+<div class="container-fluid bg-secondary">
+    <div class="row" >
+        <div class="col-8 text-start">
+            <h1>Habilidades Blandas y Duras</h1>
+        </div>
+        <div class="col-4 text-end">
+            <fa-icon [icon]="faSquarePlus" (click)="nuevoDialog()" style="font-size:40px;" class="btn"></fa-icon>
+        </div>        
+    </div>
+</div>
+<div class="container-fluid">
+     <div *ngFor="let item of habilidades" class="d-inline-flex flex-wrap" >    
+        
+        <div class="container-fluid shadow p-1 my-5 mx-5 bg-body rounded" style="height: 350px; width: 350px">
+            <div class="container-fluid text-end">
+                            <fa-icon [icon]="faPenToSquare" (click)="enActualizacion(item.id)" style="font-size:20px;" class="btn"></fa-icon>                
+                            <fa-icon [icon]="faTrash" (click)="borrarElemento(item.id)" style="font-size:20px;" class="btn"></fa-icon>
+            </div>
+            <div class="row text-center">
+             <circle-progress
+                         [percent]="item.cuantoSabes"
+                         [radius]="100"
+                         [outerStrokeWidth]="16"
+                         [innerStrokeWidth]="8"
+                         [outerStrokeColor]="'#ce093a'"
+                         [innerStrokeColor]="'#000000'"
+                         [showInnerStroke]="true"
+                         [showSubtitle]="false"
+                         [animation]="true"
+                         [animationDuration]="500"
+           > </circle-progress>
+            </div>
+              <div class="row text-center">
+                  <p>{{item.nombre}}</p>
+              </div>
+            </div>
+        
+      </div>
+   
+</div>
+</div>
+

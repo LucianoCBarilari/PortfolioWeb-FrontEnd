@@ -1,0 +1,40 @@
+<div class="container-fluid mt-2 shadow p-1 mb-3 bg-body rounded" style="max-width: 78%; min-width: 550px;">
+<div  *ngFor="let item of acercaDeData">
+  <div class="">
+    <div class="row ms-1" style="min-width:50%;">
+      <div class="col-4"> 
+        <div class="row my-0">
+          <img src=".//src/assets/images/foto.jpg"  class="img-fluid rounded-circle"   alt="foto_de_perfil" style="max-width: 350px; min-width: 200px;">       
+      </div>    
+      <div class="row mt-2 ms-1">
+          <p class="col-auto">{{item.apellido}}</p>
+          <p class="col-auto">{{item.nombre}}</p>
+      </div>        
+      </div>
+      
+
+      
+      <div class="col-8 flex-wrap">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-9">
+                    <h1 class="" >Acerca De Mi</h1>
+                </div>
+                <div class="col-3  text-end p-0">
+                  <fa-icon [icon]="faPenToSquare" (click)="onedit(item.id)" style="font-size:30px;"></fa-icon>
+                </div>                
+            </div>
+            <div class="row shadow-sm my-5" style="width: 95%;">
+                <p class="p-0">
+                    {{item.descripcion}}
+                </p>
+            </div>
+        </div>
+      </div>      
+    </div> 
+  </div> 
+</div>
+</div>
+
+
+    

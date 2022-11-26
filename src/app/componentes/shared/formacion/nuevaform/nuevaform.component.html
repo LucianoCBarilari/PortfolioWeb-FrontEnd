@@ -1,0 +1,19 @@
+<h1 class="text-center" mat-dialog-title>Nueva Formacion Academica</h1>
+<div class="">
+    <form [formGroup]="formacion_academica_form">
+        <div class="">
+            <div class="">
+                <label>Institucion</label><br>
+                <input class="form-control" type="text" formControlName="institucion"><br>
+                <label>Descripcion</label><br>
+                <textarea class="form-control" type="textarea" formControlName="descripcion"></textarea><br>
+                <label>ubicacion</label><br>
+                <input class="form-control" type="text" formControlName="ubicacion"><br><br>
+            </div>
+            <div  class="text-center" mat-dialog-actions>
+              <button mat-button [mat-dialog-close]="true"  (click)="clickGuardar()" cdkFocusInitial>Guardar</button>
+              <button mat-button (click)="clickNoGuardar()">Cancelar</button>              
+            </div>              
+        </div>              
+    </form> 
+</div>
