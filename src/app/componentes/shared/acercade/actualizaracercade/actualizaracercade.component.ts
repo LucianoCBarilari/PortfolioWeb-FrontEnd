@@ -10,7 +10,7 @@ import { PortfolioService } from 'src/app/servicios/portfolio.service';
 })
 export class ActualizaracercadeComponent implements OnInit {
 
-public acercaDe: FormGroup;
+  public acercaDe: FormGroup;
 
   constructor(
     private fb: FormBuilder,
@@ -42,8 +42,6 @@ public acercaDe: FormGroup;
     .subscribe(() =>{console.log("datos enviados");
     this.acercaDe.reset();      
   });
-
-
   }
     
   clickGuardar(){       
@@ -53,7 +51,4 @@ public acercaDe: FormGroup;
   clickNoGuardar(): void {
     this.dialogRef.close();    
   }
-
-
-
 }
