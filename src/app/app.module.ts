@@ -8,7 +8,6 @@ import { FormacionAcademicaComponent } from './componentes/formacion-academica/f
 import { HabilidadesComponent } from './componentes/habilidades/habilidades.component';
 import { ProyectosComponent } from './componentes/proyectos/proyectos.component';
 import { HttpClientModule } from '@angular/common/http';
-import { AccesoComponent } from './componentes/acceso/acceso.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatInputModule } from '@angular/material/input';
@@ -29,6 +28,7 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { NuevosproComponent } from './componentes/shared/proyectos/nuevospro/nuevospro.component';
 import { ActualizarproComponent } from './componentes/shared/proyectos/actualizarpro/actualizarpro.component';
 import { FooterComponent } from './componentes/footer/footer.component';
+import { LoginComponent } from './componentes/shared/login/login.component';
 
 
 @NgModule({
@@ -39,8 +39,7 @@ import { FooterComponent } from './componentes/footer/footer.component';
     ExperienciaLaboralComponent,
     FormacionAcademicaComponent,
     HabilidadesComponent,
-    ProyectosComponent,
-    AccesoComponent,
+    ProyectosComponent,    
     NuevExpComponent,
     ActualizarComponent,
     ActualizaracercadeComponent,
@@ -50,7 +49,8 @@ import { FooterComponent } from './componentes/footer/footer.component';
     ActualizarhabComponent,
     NuevosproComponent,
     ActualizarproComponent,
-    FooterComponent
+    FooterComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,

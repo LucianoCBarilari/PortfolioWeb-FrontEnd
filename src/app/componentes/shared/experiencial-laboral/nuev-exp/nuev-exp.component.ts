@@ -41,7 +41,7 @@ export class NuevExpComponent implements OnInit {
       ubicacion:this.experienciaForm.value.ubicacion
     }
     )
-    .subscribe(() =>{console.log("datos enviados");
+    .subscribe(() =>{
     this.experienciaForm.reset();      
   });
 

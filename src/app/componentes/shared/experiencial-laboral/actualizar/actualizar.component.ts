@@ -43,7 +43,7 @@ public ActexperienciaForm: FormGroup;
       ubicacion:this.ActexperienciaForm.value.ubicacion
     }
     )
-    .subscribe(() =>{console.log("datos enviados");
+    .subscribe(() =>{
     this.ActexperienciaForm.reset();      
   });
 

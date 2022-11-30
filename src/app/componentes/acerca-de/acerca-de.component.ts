@@ -31,9 +31,6 @@ export class AcercaDeComponent implements OnInit {
     this.cargarElementos();  
     
   }
-
-
-
   onedit(id:string){    
     let acerca = this.acercaDeData.find(p =>{ return p.id === id});    
     const dialogRef = this.dialog.open(ActualizaracercadeComponent, {
@@ -43,5 +40,4 @@ export class AcercaDeComponent implements OnInit {
      });
     dialogRef.afterClosed().subscribe();
     }
-
 }

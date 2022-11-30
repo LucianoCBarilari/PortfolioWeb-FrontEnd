@@ -67,9 +67,7 @@ export class ExperienciaLaboralComponent implements OnInit {
      });
     dialogRef.afterClosed().subscribe();
     }
-
-
-  //final de la clase
+  
   }
 
 

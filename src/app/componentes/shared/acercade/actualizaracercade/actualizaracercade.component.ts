@@ -35,11 +35,10 @@ export class ActualizaracercadeComponent implements OnInit {
       id: this.acercaDe.value.id,      
       descripcion:this.acercaDe.value.descripcion,
       apellido:this.acercaDe.value.apellido,
-      nombre:this.acercaDe.value.nombre
-      
+      nombre:this.acercaDe.value.nombre      
     }
     )
-    .subscribe(() =>{console.log("datos enviados");
+    .subscribe(() =>{
     this.acercaDe.reset();      
   });
   }
