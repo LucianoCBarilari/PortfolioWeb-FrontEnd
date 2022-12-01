@@ -21,14 +21,14 @@ export class HabilidadesComponent implements OnInit {
   constructor(private portfolioService:PortfolioService, public dialog: MatDialog) { }
 
   public cargarElementos(){
-    this.portfolioService.get("http://localhost:9090/habilidades/mostrar")
+    this.portfolioService.get(`${this.portfolioService.backUrl}/habilidades/mostrar`)
     .subscribe(data => {this.habilidades = data
       
   });
   }
   
   public borrarElemento(id:any){
-    this.portfolioService.delete(`http://localhost:9090/habilidades/borrar/${id}`)
+    this.portfolioService.delete(`${this.portfolioService.backUrl}/habilidades/borrar/${id}`)
     .subscribe(()=>{});
   } 
 

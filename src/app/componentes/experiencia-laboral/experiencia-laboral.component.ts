@@ -23,14 +23,14 @@ export class ExperienciaLaboralComponent implements OnInit {
   
   //pedidos al servicio
   public cargarElementos(){
-    this.portfolioService.get("http://localhost:9090/experienciaLaboral/mostrar")
+    this.portfolioService.get(`${this.portfolioService.backUrl}/experienciaLaboral/mostrar`)
     .subscribe(data => {this.experienciaLaboral = data
     //console.log(this.experienciaLaboral)
   });
   }
   
   public borrarElemento(id:any){
-    this.portfolioService.delete(`http://localhost:9090/experienciaLaboral/borrar/${id}`)
+    this.portfolioService.delete(`${this.portfolioService.backUrl}/experienciaLaboral/borrar/${id}`)
     .subscribe(()=>{});
   }  
   

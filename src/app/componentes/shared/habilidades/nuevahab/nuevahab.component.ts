@@ -33,7 +33,7 @@ export class NuevahabComponent implements OnInit {
     this.habilidad_Form.valueChanges.subscribe()
   }
   public  GuardarData(){
-    this.portfolioService.post("http://localhost:9090/habilidades/crear",
+    this.portfolioService.post(`${this.portfolioService.backUrl}/habilidades/crear`,
     {
       cuantoSabes: this.habilidad_Form.value.cuantoSabes,
       nombre:this.habilidad_Form.value.nombre,

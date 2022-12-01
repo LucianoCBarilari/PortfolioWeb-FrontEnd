@@ -30,7 +30,7 @@ export class ActualizaracercadeComponent implements OnInit {
     this.acercaDe.valueChanges.subscribe();
   }
   actualizarData(){
-    this.portfolioService.put("http://localhost:9090/acercademi/actualizar",
+    this.portfolioService.put(`${this.portfolioService.backUrl}/acercademi/actualizar`,
     {
       id: this.acercaDe.value.id,      
       descripcion:this.acercaDe.value.descripcion,

@@ -21,14 +21,14 @@ export class ProyectosComponent implements OnInit {
   constructor(private portfolioService:PortfolioService, public dialog: MatDialog) { }
 
   public cargarElementos(){
-    this.portfolioService.get("http://localhost:9090/proyectos/mostrar")
+    this.portfolioService.get(`${this.portfolioService.backUrl}/proyectos/mostrar`)
     .subscribe(data => {this.proyectos = data
       
   });
   }
   
   public borrarElemento(id:any){
-    this.portfolioService.delete(`http://localhost:9090/proyectos/borrar/${id}`)
+    this.portfolioService.delete(`${this.portfolioService.backUrl}/proyectos/borrar/${id}`)
     .subscribe(()=>{});
   } 
 

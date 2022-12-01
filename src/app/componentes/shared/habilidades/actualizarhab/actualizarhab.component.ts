@@ -30,7 +30,7 @@ export class ActualizarhabComponent implements OnInit {
   }
 
   actualizarData(){
-    this.portfolioService.put("http://localhost:9090/habilidades/actualizar",
+    this.portfolioService.put(`${this.portfolioService.backUrl}/habilidades/actualizar`,
     {
       id: this.act_habilidades_form.value.id,
       cuantoSabes:this.act_habilidades_form.value.cuantoSabes,

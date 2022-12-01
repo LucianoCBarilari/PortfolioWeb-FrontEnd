@@ -35,7 +35,7 @@ public ActexperienciaForm: FormGroup;
   }
 
     actualizarData(){
-    this.portfolioService.put("http://localhost:9090/experienciaLaboral/actualizar",
+    this.portfolioService.put(`${this.portfolioService.backUrl}/experienciaLaboral/actualizar`,
     {
       id: this.ActexperienciaForm.value.id,
       empresa: this.ActexperienciaForm.value.empresa,

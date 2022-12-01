@@ -7,6 +7,7 @@ import { BehaviorSubject, map } from 'rxjs';
 })
 export class PortfolioService {
 
+  public backUrl: string = "https://portfolioweb-backend-production.up.railway.app"
   private keyToken = sessionStorage.getItem('current'); 
   private currentUserSubject: BehaviorSubject<any>;
   

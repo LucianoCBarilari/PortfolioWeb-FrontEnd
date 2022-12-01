@@ -29,7 +29,7 @@ export class ActualizarformComponent implements OnInit {
     this.actualizar_formacion_academica_form.valueChanges.subscribe();
   }
   actualizarData(){
-    this.portfolioService.put("http://localhost:9090/formacionacademica/actualizar",
+    this.portfolioService.put(`${this.portfolioService.backUrl}/formacionacademica/actualizar`,
     {
       id: this.actualizar_formacion_academica_form.value.id,
       descripcion:this.actualizar_formacion_academica_form.value.descripcion,

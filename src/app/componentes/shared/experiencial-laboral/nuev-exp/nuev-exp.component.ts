@@ -34,7 +34,7 @@ export class NuevExpComponent implements OnInit {
   }
 
   public  GuardarData2(){
-    this.portfolioService.post("http://localhost:9090/experienciaLaboral/crear",
+    this.portfolioService.post(`${this.portfolioService.backUrl}/experienciaLaboral/crear`,
     {
       empresa: this.experienciaForm.value.empresa,
       descripcion:this.experienciaForm.value.descripcion,

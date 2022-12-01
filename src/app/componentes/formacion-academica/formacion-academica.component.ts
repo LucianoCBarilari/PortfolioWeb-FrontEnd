@@ -21,13 +21,13 @@ export class FormacionAcademicaComponent implements OnInit {
 
    //pedidos al servicio
    public cargarElementos(){
-    this.portfolioService.get("http://localhost:9090/formacionacademica/mostrar")
+    this.portfolioService.get(`${this.portfolioService.backUrl}/formacionacademica/mostrar`)
     .subscribe(data => {this.formacionAcademica = data
   });
   }
   
   public borrarElemento(id:any){
-    this.portfolioService.delete(`http://localhost:9090/formacionacademica/borrar/${id}`)
+    this.portfolioService.delete(`${this.portfolioService.backUrl}/formacionacademica/borrar/${id}`)
     .subscribe(()=>{});
   } 
 

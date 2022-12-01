@@ -19,7 +19,7 @@ export class AcercaDeComponent implements OnInit {
   constructor(private portfolioService:PortfolioService, public dialog: MatDialog) { }
   //pedidos al servicio
   public cargarElementos(){
-    this.portfolioService.get("http://localhost:9090/acercademi/mostrar")
+    this.portfolioService.get(`${this.portfolioService.backUrl}/acercademi/mostrar`)
     .subscribe(res => {this.acercaDeData = res
            
   });

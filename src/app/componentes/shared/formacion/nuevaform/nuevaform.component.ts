@@ -33,7 +33,7 @@ export class NuevaformComponent implements OnInit {
   }
 
   public  GuardarData(){
-    this.portfolioService.post("http://localhost:9090/formacionacademica/crear",
+    this.portfolioService.post(`${this.portfolioService.backUrl}/formacionacademica/crear`,
     {
       descripcion: this.formacion_academica_form.value.descripcion,
       institucion:this.formacion_academica_form.value.institucion,
