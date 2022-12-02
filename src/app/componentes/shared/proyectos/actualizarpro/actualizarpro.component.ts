@@ -29,7 +29,7 @@ export class ActualizarproComponent implements OnInit {
   }
 
   actualizarData(){
-    this.portfolioService.put("http://localhost:9090/proyectos/actualizar",
+    this.portfolioService.put(`${this.portfolioService.backUrl}/proyectos/actualizar`,
     {
       id: this.act_proyectos_form.value.id,
       descripcion:this.act_proyectos_form.value.descripcion,

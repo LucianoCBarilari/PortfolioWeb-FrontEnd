@@ -31,7 +31,7 @@ export class NuevosproComponent implements OnInit {
     this.proyectos_Form.valueChanges.subscribe()
   }
   public  GuardarData(){
-    this.portfolioService.post("http://localhost:9090/proyectos/crear",
+    this.portfolioService.post(`${this.portfolioService.backUrl}/proyectos/crear`,
     {
       descripcion: this.proyectos_Form.value.descripcion,
       nombre:this.proyectos_Form.value.nombre

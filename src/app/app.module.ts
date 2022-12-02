@@ -29,6 +29,9 @@ import { NuevosproComponent } from './componentes/shared/proyectos/nuevospro/nue
 import { ActualizarproComponent } from './componentes/shared/proyectos/actualizarpro/actualizarpro.component';
 import { FooterComponent } from './componentes/footer/footer.component';
 import { LoginComponent } from './componentes/shared/login/login.component';
+import { provideStorage,getStorage } from "@angular/fire/storage";
+import { environment } from 'src/environments/environment';
+import {initializeApp,provideFirebaseApp } from '@angular/fire/app'
 
 
 @NgModule({
@@ -65,7 +68,9 @@ import { LoginComponent } from './componentes/shared/login/login.component';
     MatChipsModule,
     MatDialogModule,
     NgCircleProgressModule.forRoot({}),
-    FontAwesomeModule
+    FontAwesomeModule,
+    provideFirebaseApp(()=>initializeApp(environment.firebase)),
+    provideStorage(()=> getStorage())
 
   ],
   providers: [],

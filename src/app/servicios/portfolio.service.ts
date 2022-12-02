@@ -1,14 +1,19 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { Injectable } from '@angular/core';
+import { Injectable,  } from '@angular/core';
 import { BehaviorSubject, map } from 'rxjs';
+
 
 @Injectable({
   providedIn: 'root'
 })
 export class PortfolioService {
 
+  
+
   public backUrl: string = "https://portfolioweb-backend-production.up.railway.app"
+
   private keyToken = sessionStorage.getItem('current'); 
+  
   private currentUserSubject: BehaviorSubject<any>;
   
   headers = new HttpHeaders({
@@ -16,8 +21,12 @@ export class PortfolioService {
     'Authorization': `Bearer ${this.keyToken}`});
    options = { headers: this.headers };
  
-  constructor(private http:HttpClient) 
-  {this.currentUserSubject = new BehaviorSubject((sessionStorage.getItem('current')|| '{}'))  }
+  constructor(
+               private http:HttpClient               
+             ) 
+  {
+   this.currentUserSubject = new BehaviorSubject((sessionStorage.getItem('current')|| '{}'))  
+  }
 
   public get(url:string){
     return this.http.get(url);
@@ -40,7 +49,6 @@ export class PortfolioService {
       sessionStorage.setItem('current',data);
     return data;
   }));
-  }
-
+  } 
 
 }
