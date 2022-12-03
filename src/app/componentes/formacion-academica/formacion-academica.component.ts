@@ -15,7 +15,9 @@ export class FormacionAcademicaComponent implements OnInit {
   faSquarePlus =faSquarePlus;
   faPenToSquare = faPenToSquare;
   faTrash = faTrash;
+
   formacionAcademica: any;
+  imagenComponente:string[];
 
   constructor(private portfolioService:PortfolioService, public dialog: MatDialog) { }
 
@@ -33,6 +35,8 @@ export class FormacionAcademicaComponent implements OnInit {
 
   ngOnInit(): void {
     this.cargarElementos();
+    this.imagenComponente=[];
+    this.portfolioService.getimages(this.imagenComponente);   
   }
 
   enActualizacion(id:string){    
@@ -51,6 +55,4 @@ export class FormacionAcademicaComponent implements OnInit {
        });
       dialogRef.afterClosed().subscribe();
       }
-
-//final de la clase
 }

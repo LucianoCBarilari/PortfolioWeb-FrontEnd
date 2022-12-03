@@ -1,11 +1,11 @@
-<div class="container-fluid mt-2 shadow p-1 mb-3 bg-dark rounded" style="max-width:78%; min-width: 550px;">
-<div class="container-fluid bg-secondary">
+<div class="container-fluid mt-2 shadow p-1 mb-3 rounded" style="max-width:78%; min-width: 412px;">
+<div class="container-fluid bg-secondary rounded">
     <div class="row" >
         <div class="col-8">
             <h1>Proyectos</h1>
         </div>
         <div class="col-4 text-end">
-          <fa-icon [icon]="faSquarePlus"  (click)="nuevoDialog()" style="font-size:40px;" class="btn"></fa-icon>
+          <fa-icon [icon]="faSquarePlus"  (click)="nuevoDialog()" style="font-size:30px;" class="btn"></fa-icon>
         </div>        
     </div>
 </div>
@@ -20,7 +20,7 @@
          </div>
          <div class="container-fluid">
           <div class="card bg-secondary" style="width: 18rem;">
-            <img src=".//src/assets/images/324409.png" class="card-img-top shadow-sm"/> 
+            <img [src]="imagenComponente[2]" class="card-img-top shadow-sm"/> 
             <div class="card-body">
               <h5 class="card-title">{{item.nombre}}</h5>
               <p class="card-text">{{item.descripcion}}.</p>          

@@ -1,11 +1,11 @@
-<div class="container-fluid mt-2 shadow p-1 mb-3 rounded" style="max-width: 78%; min-width: 550px;">
-    <div class="container-fluid bg-secondary">
+<div class="container-fluid mt-2 shadow p-1 mb-3 rounded" style="max-width: 78%; min-width: 412px;">
+    <div class="container-fluid bg-secondary rounded mt-0">
     <div class="row" >
-        <div class="col-8 text-start">
+        <div class="col-8 text-start p-1">
             <h1>Formacion Academica</h1>
         </div>
         <div class="col-4 text-end p-0">
-            <fa-icon [icon]="faSquarePlus" (click)="nuevoDialog()" style="font-size:40px;" class="btn"></fa-icon>
+            <fa-icon [icon]="faSquarePlus" (click)="nuevoDialog()" style="font-size:30px;" class="btn"></fa-icon>
         </div>        
     </div>
 </div>
@@ -22,8 +22,8 @@
             </div>             
         </div>  
         <div class="row align-items-center">
-            <div  class="col-4 text-center shadow-sm" style="max-width:200px; max-height: 200px;" >
-                <img src=".//src/assets/images/324409.png" class="img-fluid"/> 
+            <div  class="col-4 text-center shadow-sm" style="max-width:350px; max-height: 350px; min-width: 200px;" >
+                <img [src]="imagenComponente[2]" class="img-fluid"/> 
             </div>    
             <div class="col-8  text-start">                
                 <p>{{item.descripcion}}</p> 

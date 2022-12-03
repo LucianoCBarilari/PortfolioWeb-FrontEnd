@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { PortfolioService } from 'src/app/servicios/portfolio.service';
 import { LoginComponent } from '../shared/login/login.component';
-import { Storage,ref, getDownloadURL,listAll  } from "@angular/fire/storage";
+
 
 @Component({
   selector: 'app-encabezado',
@@ -11,19 +11,20 @@ import { Storage,ref, getDownloadURL,listAll  } from "@angular/fire/storage";
 })
 export class EncabezadoComponent implements OnInit {
 
-  images: string[];
+  
   login: any;
+  imagenComponente:string[];
 
   constructor(
     private portfolioService:PortfolioService, 
-    public dialog: MatDialog,
-    private storage:Storage
+    public dialog: MatDialog    
              ) { 
-              this.images=[];
+              
              }
 
   ngOnInit(): void {
-    this.getimages();
+    this.imagenComponente=[];
+    this.portfolioService.getimages(this.imagenComponente);    
   }
 
   openDialog(): void {
@@ -34,17 +35,9 @@ export class EncabezadoComponent implements OnInit {
     dialogRef.afterClosed().subscribe();
     }
 
-    public getimages(){
-      const imagesRef=ref(this.storage,'images');
-  
-      listAll(imagesRef)
-      .then(async response =>{
-        this.images = [];
-        for (let item of response.items){
-          const url= await getDownloadURL(item);
-          this.images.push(url);          
-        }
-      })
-      .catch(error =>console.log(error));      
+    logOut(){
+      sessionStorage.removeItem('current');
+      this.portfolioService.keyToken = sessionStorage.getItem('current');
     }
+
 }

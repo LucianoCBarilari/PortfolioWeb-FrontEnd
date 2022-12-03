@@ -1,18 +1,18 @@
-<div class="container-fluid mt-2 shadow p-1 mb-3 rounded" style="max-width: 78%; min-width: 550px;">
-<div class="container-fluid bg-secondary">
+<div class="container-fluid mt-2 shadow p-1 mb-3 rounded" style="max-width: 78%; min-width: 412px;">
+<div class="container-fluid bg-secondary rounded">
     <div class="row" >
-        <div class="col-8 text-start">
+        <div class="col-8 text-start ">
             <h1>Habilidades Blandas y Duras</h1>
         </div>
         <div class="col-4 text-end">
-            <fa-icon [icon]="faSquarePlus" (click)="nuevoDialog()" style="font-size:40px;" class="btn"></fa-icon>
+            <fa-icon [icon]="faSquarePlus" (click)="nuevoDialog()" style="font-size:30px;" class="btn"></fa-icon>
         </div>        
     </div>
 </div>
 <div class="container-fluid">
      <div *ngFor="let item of habilidades" class="d-inline-flex flex-wrap" >    
         
-        <div class="container-fluid shadow p-1 my-5 mx-5 rounded" style="height: 350px; width: 350px">
+        <div class="container-fluid shadow p-1 my-5 mx-5 text-center bg-secondary rounded" style="height: 350px; width: 250px">
             <div class="container-fluid text-end">
                             <fa-icon [icon]="faPenToSquare" (click)="enActualizacion(item.id)" style="font-size:20px;" class="btn"></fa-icon>                
                             <fa-icon [icon]="faTrash" (click)="borrarElemento(item.id)" style="font-size:20px;" class="btn"></fa-icon>
@@ -21,6 +21,8 @@
              <circle-progress
                          [percent]="item.cuantoSabes"
                          [radius]="100"
+                         [responsive]="false"
+                         [titleColor]="'#fffafa'"
                          [outerStrokeWidth]="16"
                          [innerStrokeWidth]="8"
                          [outerStrokeColor]="'#ce093a'"

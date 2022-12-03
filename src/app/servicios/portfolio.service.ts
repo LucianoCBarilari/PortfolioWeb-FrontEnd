@@ -1,6 +1,7 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable,  } from '@angular/core';
 import { BehaviorSubject, map } from 'rxjs';
+import { Storage,ref, getDownloadURL,listAll  } from "@angular/fire/storage";
 
 
 @Injectable({
@@ -12,7 +13,7 @@ export class PortfolioService {
 
   public backUrl: string = "https://portfolioweb-backend-production.up.railway.app"
 
-  private keyToken = sessionStorage.getItem('current'); 
+  public keyToken = sessionStorage.getItem('current'); 
   
   private currentUserSubject: BehaviorSubject<any>;
   
@@ -22,10 +23,11 @@ export class PortfolioService {
    options = { headers: this.headers };
  
   constructor(
-               private http:HttpClient               
+               private http:HttpClient,
+               private storage:Storage                
              ) 
   {
-   this.currentUserSubject = new BehaviorSubject((sessionStorage.getItem('current')|| '{}'))  
+   this.currentUserSubject = new BehaviorSubject((sessionStorage.getItem('current')|| '{}'))    
   }
 
   public get(url:string){
@@ -50,5 +52,18 @@ export class PortfolioService {
     return data;
   }));
   } 
+  
+  public getimages(imagesList:string[]){     
+    const imagesRef=ref(this.storage,'images');
 
+    listAll(imagesRef)
+    .then(async response =>{
+      
+      for (let item of response.items){
+        const url= await getDownloadURL(item);
+        imagesList.push(url);           
+      }
+    })
+    .catch(error =>console.log(error));      
+  }
 }

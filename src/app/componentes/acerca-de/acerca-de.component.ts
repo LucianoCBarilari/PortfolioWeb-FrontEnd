@@ -3,7 +3,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { PortfolioService } from 'src/app/servicios/portfolio.service';
 import { ActualizaracercadeComponent } from '../shared/acercade/actualizaracercade/actualizaracercade.component';
 import { faSquarePlus,faPenToSquare } from '@fortawesome/free-solid-svg-icons';
-import { Storage,ref, getDownloadURL,listAll  } from "@angular/fire/storage";
+
 
 @Component({
   selector: 'app-acerca-de',
@@ -15,31 +15,33 @@ export class AcercaDeComponent implements OnInit {
   faPenToSquare = faPenToSquare
 
   acercaDeData:any;
-  images: string[];
+  imagenComponente:string[];
+  //no esta usado todavia
+  componetData:{
+    nombre,
+    apellido,
+    descripcion
+  }
 
   constructor(
               private portfolioService:PortfolioService, 
-              public dialog: MatDialog,
-              private storage:Storage              
-              ) { 
-                this.images=[];
+              public dialog: MatDialog             
+              ) {                 
               }
   //pedidos al servicio
   public cargarElementos(){
     this.portfolioService.get(`${this.portfolioService.backUrl}/acercademi/mostrar`)
-    .subscribe(res => {this.acercaDeData = res
-           
-  });
-  }
- 
-  
+    .subscribe(res => {this.acercaDeData = res;     
+    });
+  } 
 
    //inicio del modulo
   ngOnInit(): void {
     this.cargarElementos();
-    this.getimages();  
-    
-  }
+    this.imagenComponente=[];    
+    this.portfolioService.getimages(this.imagenComponente);      
+  }  
+
   onedit(id:string){    
     let acerca = this.acercaDeData.find(p =>{ return p.id === id});    
     const dialogRef = this.dialog.open(ActualizaracercadeComponent, {
@@ -50,18 +52,5 @@ export class AcercaDeComponent implements OnInit {
     dialogRef.afterClosed().subscribe();
     }
 
-    public getimages(){
-      const imagesRef=ref(this.storage,'images');
-  
-      listAll(imagesRef)
-      .then(async response =>{
-        this.images = [];
-        for (let item of response.items){
-          const url= await getDownloadURL(item);
-          this.images.push(url);
-          console.log(url);
-        }
-      })
-      .catch(error =>console.log(error));      
-    }
+
 }

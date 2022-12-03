@@ -15,7 +15,9 @@ export class ExperienciaLaboralComponent implements OnInit {
   faSquarePlus =faSquarePlus;
   faPenToSquare =faPenToSquare;
   faTrash = faTrash;
+
   experienciaLaboral:any;
+  imagenComponente:string[];
   
   
 
@@ -24,8 +26,7 @@ export class ExperienciaLaboralComponent implements OnInit {
   //pedidos al servicio
   public cargarElementos(){
     this.portfolioService.get(`${this.portfolioService.backUrl}/experienciaLaboral/mostrar`)
-    .subscribe(data => {this.experienciaLaboral = data
-    //console.log(this.experienciaLaboral)
+    .subscribe(data => {this.experienciaLaboral = data    
   });
   }
   
@@ -36,8 +37,9 @@ export class ExperienciaLaboralComponent implements OnInit {
   
   //inicio del modulo
   ngOnInit(): void { 
-    this.cargarElementos();    
-     
+    this.cargarElementos();      
+    this.imagenComponente=[];
+    this.portfolioService.getimages(this.imagenComponente);  
   }  
 
   //dialog del formulario para cargar elementos nuevos
@@ -48,15 +50,8 @@ export class ExperienciaLaboralComponent implements OnInit {
      });
     dialogRef.afterClosed().subscribe();
     }
-    //funcion experimental en deshuso
-    abrirDialogoActualizar(): void {
-      const dialogRef = this.dialog.open(ActualizarComponent, {
-        width:'400px',
-        height:'400px'
-       });
-      dialogRef.afterClosed().subscribe();
-      }
-  //otros
+    
+  //Actualizar
   onedit(id:string){    
     let exp = this.experienciaLaboral.find(p =>{ return p.id === id});
     console.log(exp);

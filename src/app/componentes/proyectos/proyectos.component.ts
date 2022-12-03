@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
-
 import { faSquarePlus,faPenToSquare,faTrash } from '@fortawesome/free-solid-svg-icons';
 import { PortfolioService } from 'src/app/servicios/portfolio.service';
 import { ActualizarproComponent } from '../shared/proyectos/actualizarpro/actualizarpro.component';
@@ -16,7 +15,9 @@ export class ProyectosComponent implements OnInit {
   faSquarePlus =faSquarePlus;
   faPenToSquare = faPenToSquare;
   faTrash = faTrash;  
+
   proyectos:any;
+  imagenComponente:string[];
 
   constructor(private portfolioService:PortfolioService, public dialog: MatDialog) { }
 
@@ -34,6 +35,8 @@ export class ProyectosComponent implements OnInit {
 
   ngOnInit(): void {
     this.cargarElementos();
+    this.imagenComponente=[];
+    this.portfolioService.getimages(this.imagenComponente); 
   
   }
   enActualizacion(id:string){    

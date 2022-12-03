@@ -1,10 +1,10 @@
-<div class="container-fluid mt-2 shadow p-1 mb-3 rounded" style="max-width: 78%; min-width: 550px;">
+<div class="container-fluid mt-2 shadow p-1 mb-3 rounded" style="max-width: 78%; min-width: 412px;">
 <div  *ngFor="let item of acercaDeData">
   <div class="">
     <div class="row ms-1" style="min-width:50%;">
-      <div class="col-4"> 
+      <div class="col-6"> 
         <div class="row my-0">
-          <img [src]="images[1]"  class="img-fluid rounded-circle"   alt="foto_de_perfil" style="max-width: 350px; min-width: 200px;">       
+          <img [src]="imagenComponente[1]"  class="img-fluid rounded-circle"   alt="foto_de_perfil" style="max-width: 350px; min-width: 150px;">       
       </div>    
       <div class="row mt-2 ms-1">
           <p class="col-auto">{{item.apellido}}</p>
@@ -14,7 +14,7 @@
       
 
       
-      <div class="col-8 flex-wrap">
+      <div class="col-6 flex-wrap">
         <div class="container-fluid">
             <div class="row">
                 <div class="col-9">
@@ -24,8 +24,8 @@
                   <fa-icon [icon]="faPenToSquare" (click)="onedit(item.id)" style="font-size:30px;"></fa-icon>
                 </div>                
             </div>
-            <div class="row shadow-sm my-5" style="width: 95%;">
-                <p class="p-0">
+            <div class="row shadow-sm my-5">
+                <p class="container-fluid p-0">
                     {{item.descripcion}}
                 </p>
             </div>
